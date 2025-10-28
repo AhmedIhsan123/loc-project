@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Edit Sheet</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<header>
+			<nav class="navigation-bar">
+				<h1>Green River College</h1>
+				<button id="sign-in-button">Sign in</button>
+			</nav>
+		</header>
+		<main>
+			<h1>Edit Sheet</h1>
+			<form>
+				<fieldset>
+					<label for="division">Division</label>
+					<select id="division" name="division">
+						<option value="default">Social Science</option>
+					</select>
+				</fieldset>
+				<legend>Programs</legend>
+				<section class="programs">
+					<p>
+						<div class="div-card">Anthropology</div>
+                        <div class="div-card">History</div>
+                        <div class="div-card">Political Science</div>
+                        <div class="div-card">Psychology</div>
+					</p>
+				</section>
+				<fieldset>
+					<legend>Contacts</legend>
+					<label for="chair-input">Chair: </label>
+					<input
+						type="text"
+						id="chair-input"
+						name="chair-input"
+						class="input-fields"
+                        value="Dr. Sarah Mitchell"
+					/>
+					<label for="dean-input">Dean: </label>
+					<input
+						type="text"
+						id="dean-input"
+						name="dean-input"
+						class="input-fields"
+                        value="Dr. Robert Chen"
+					/>
+					<label for="pen-input">PEN Contact: </label>
+					<input
+						type="text"
+						id="pen-input"
+						name="pen-input"
+						class="input-fields"
+                        value="Jennifer Rodriguez"
+					/>
+					<label for="loc-input">LOC Representative: </label>
+					<input
+						type="text"
+						id="loc-input"
+						name="loc-input"
+						class="input-fields"
+                        value="Michael Thompson"
+					/>
+				</fieldset>
+			</form>
+			<iframe
+				src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSqZrRLG3J2QtDEOqSopkjmPhjw40or4dWBA602wDfu1ZM_GfLvIXuLoiVjpA1sN9lE2OTGLT5k_dyv/pubhtml?gid=1432938532&amp;single=true&amp;widget=true&amp;headers=false"
+			></iframe>
+		</main>
+	</body>
+</html>
