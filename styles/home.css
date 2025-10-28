@@ -44,7 +44,6 @@ body {
 main {
 	display: flex;
 	flex-direction: column;
-	overflow: hidden;
 	flex: 1;
 }
 
@@ -191,4 +190,14 @@ main {
 
 #section-3 {
 	grid-area: section-3;
+}
+
+/* ============================= */
+/* Media queries */
+/* ============================= */
+@media (max-width: 1000px) {
+	#division-cards-section {
+		grid-template-columns: repeat(3, 1fr);
+		overflow: auto;
+	}
 }
