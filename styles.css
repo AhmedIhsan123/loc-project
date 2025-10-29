@@ -2,7 +2,7 @@
 	/* ==== COLORS ==== */
 	--primary-color: #2c882b;
 	--secondary-color: #5b5a5a;
-	--tritary-color: #fd7e14;
+	--speacial-color: orange;
 	--accent-color: #999;
 	--background-color: #f9f9f9;
 	--hover-color: #f0f0f0;
@@ -40,6 +40,7 @@
 	padding: 0;
 	box-sizing: border-box;
 	font-family: Arial, Helvetica, sans-serif;
+	user-select: none;
 }
 
 /* Navigation bar styles */
@@ -48,18 +49,17 @@
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	padding: 1rem;
+	padding: var(--padding-medium);
 	height: 100%;
 	color: var(--text-color);
 	background-color: var(--primary-color);
 }
 
 #sign-in-button {
-	font-size: 1.1rem;
+	font-size: var(--font-size-base);
 	border: 0;
-	background-color: var(--primary-color);
-	border-radius: 2px;
-	background-color: var(--tritary-color);
+	border-radius: var(--border-radius);
+	background-color: var(--speacial-color);
 	cursor: pointer;
-	padding: 1rem 2rem;
+	padding: var(--padding-medium) var(--padding-large);
 }
