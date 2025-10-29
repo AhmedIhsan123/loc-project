@@ -138,3 +138,14 @@ main {
 #version-history-section {
 	grid-area: version-history;
 }
+
+.table-container {
+	width: 100%;
+	overflow-x: auto;
+}
+
+.table-container table {
+	width: 100%;
+	border-collapse: collapse;
+	white-space: nowrap; /* prevents columns from wrapping */
+}
