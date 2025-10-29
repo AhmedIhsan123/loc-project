@@ -16,7 +16,7 @@ main {
 	grid-template-areas:
 		"edit-form edit-form changelog"
 		"version-history version-history version-history";
-	grid-template-rows: 3fr 1fr;
+	grid-template-rows: auto 30%; /* top row 300px min, bottom row 150px */
 	gap: var(--gap-large);
 	height: 100%;
 }
@@ -30,11 +30,21 @@ main {
 	border-radius: var(--border-radius);
 	box-shadow: var(--box-shadow-dark);
 	background-color: var(--background-color);
+
+	/* Keep sections inside parent */
+	max-height: 100%;
+	overflow: hidden; /* or overflow-y: auto if content scrolls */
 }
 
 .section-title {
 	color: var(--primary-color);
 	border-bottom: 2px solid var(--primary-color);
+}
+
+#division-cards-section,
+#history-list {
+	overflow-y: auto;
+	max-height: 100%;
 }
 
 /* Edit form section */
@@ -69,7 +79,8 @@ main {
 	text-align: center;
 	background-color: var(--background-color);
 	box-shadow: var(--box-shadow-light);
-	height: 100%; /* Fixed height */
+	min-height: 200px;
+	height: 100%;
 }
 
 #click-form-msg {
@@ -80,13 +91,6 @@ main {
 /* Changelog section */
 #changelog-section {
 	grid-area: changelog;
-}
-
-.section-title {
-	color: var(--primary-color);
-	font-size: var(--font-size-large);
-	border-bottom: 2px solid var(--primary-color);
-	padding-bottom: var(--padding-small);
 }
 
 #history-list {
