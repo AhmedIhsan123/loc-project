@@ -1,133 +1,85 @@
-:root {
-	/* ==== COLORS ==== */
-	--primary-color: #2c882b;
-	--secondary-color: #5b5a5a;
-	--accent-color: #999;
-	--background-color: #f9f9f9;
-	--hover-color: #f0f0f0;
-	--text-color: white;
-	--section-background-color: grey;
-
-	/* ==== TYPOGRAPHY ==== */
-	--font-family: "Segoe UI", Arial, sans-serif;
-	--font-size-base: 1rem;
-	--font-size-small: 0.9rem;
-	--font-size-large: 1.25rem;
-
-	/* ==== SPACING ==== */
-	--padding-small: 0.5rem;
-	--padding-medium: 1rem;
-	--padding-large: 1.5rem;
-	--gap-small: 0.5rem;
-	--gap-medium: 1rem;
-	--gap-large: 3rem;
-
-	/* ==== BORDERS & RADIUS ==== */
-	--border-radius: 8px;
-	--border-color: black;
-	--border-width: 1px;
-	--card-border-left: 3px solid var(--primary-color);
-
-	/* ==== SHADOWS ==== */
-	--box-shadow-light: 0 2px 4px rgba(0, 0, 0, 0.1);
-	--box-shadow-dark: 0 2px 4px rgba(0, 0, 0, 0.5);
-}
-
+/* Page Layout */
 body {
 	display: grid;
-	grid-template-rows: 10% 90%;
+	grid-template-rows: 10% 90%; /* Header takes 10%, rest of page takes 90% */
 	height: 100vh;
-	font-family: var(--font-family);
-	font-size: var(--font-size-base);
+	max-height: 100vh; /* Define a max height for safe sizing */
 }
 
 main {
-	height: 100%;
-}
-
-.section {
-	padding: var(--gap-medium) 1.5rem;
-	background-color: white;
-	border-radius: var(--border-radius);
-	box-shadow: var(--box-shadow-dark);
-}
-
-#sections {
-	display: grid;
-	grid-template-areas:
-		"section-1 section-1 section-2"
-		"section-3 section-3 section-3";
-	grid-template-rows: 70% 30%;
-	gap: 1rem;
 	padding: 3rem;
 	height: 100%;
 }
 
-/* ============================= */
-/* Section #1 */
-/* ============================= */
-
-#section-1 {
-	display: flex;
-	flex-direction: column;
-	cursor: pointer;
-	gap: 1rem;
-	grid-area: section-1;
-	transition: all 0.15s ease-in-out;
-}
-
-#section-1:hover {
-	background-color: #f9f9f9;
-}
-
-#division-cards-section {
+#page-container {
 	display: grid;
-	grid-template-columns: repeat(5, 1fr);
-	overflow: auto;
-	gap: var(--gap-medium);
+	grid-template-areas:
+		"edit-form edit-form changelog"
+		"version-history version-history version-history";
+	grid-template-rows: 3fr 1fr;
+	gap: var(--gap-large);
 	height: 100%;
 }
 
-#click-form-msg {
-	text-align: center;
-	color: var(--accent-color);
-	font-size: var(--font-size-small);
-	font-style: italic;
+/* Class based styles */
+.section {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	padding: var(--padding-medium);
+	border-radius: var(--border-radius);
+	box-shadow: var(--box-shadow-dark);
+	background-color: var(--background-color);
+}
+
+.section-title {
+	color: var(--primary-color);
+	border-bottom: 2px solid var(--primary-color);
+}
+
+/* Edit form section */
+#edit-form-section {
+	grid-area: edit-form;
+	cursor: pointer;
+
+	transition: background-color 0.15s ease-in-out;
+}
+
+#edit-form-section:hover {
+	background-color: var(--hover-color);
+}
+
+/* Division cards section */
+#division-cards-section {
+	display: grid;
+	gap: var(--gap-medium);
+	grid-template-columns: repeat(5, 1fr);
+	height: 100%;
+}
+
+.card-title {
+	background-color: var(--primary-color);
+	padding: var(--padding-small);
 }
 
 .div-card {
 	display: flex;
 	flex-direction: column;
-	background-color: var(--background-color);
+	color: white;
 	text-align: center;
+	background-color: var(--background-color);
 	box-shadow: var(--box-shadow-light);
-	transition: background-color 0.2s;
+	height: 100%; /* Fixed height */
 }
 
-.div-card:hover {
-	background-color: var(--hover-color);
+#click-form-msg {
+	color: var(--secondary-color);
+	align-self: center;
 }
 
-.card-title {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 3rem;
-	padding: var(--padding-small) var(--padding-medium);
-	color: var(--text-color);
-	border-bottom: var(--border-width) solid var(--border-color);
-	background-color: var(--primary-color);
-}
-
-/* ============================= */
-/* Section #2 */
-/* ============================= */
-
-#section-2 {
-	display: flex;
-	flex-direction: column;
-	gap: var(--gap-medium);
-	grid-area: section-2;
+/* Changelog section */
+#changelog-section {
+	grid-area: changelog;
 }
 
 .section-title {
@@ -141,7 +93,7 @@ main {
 	list-style: none;
 	padding: 0;
 	margin: 0;
-	max-height: 400px;
+	max-height: 100%;
 	overflow-y: auto;
 }
 
@@ -178,22 +130,7 @@ main {
 	font-style: italic;
 }
 
-/* ============================= */
-/* Section #3 */
-/* ============================= */
-
-#section-3 {
-	grid-area: section-3;
-	height: 100%;
-}
-
-/* ============================= */
-/* Media Queries */
-/* ============================= */
-
-@media (max-width: 1000px) {
-	#division-cards-section {
-		grid-template-columns: repeat(3, 1fr);
-		overflow: auto;
-	}
+/* Version history section */
+#version-history-section {
+	grid-area: version-history;
 }
