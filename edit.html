@@ -5,6 +5,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Edit Sheet</title>
 		<link rel="stylesheet" href="styles.css" />
+		<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+		<script src="//cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
+		<link rel="stylesheet" href="//cdn.datatables.net/2.3.4/css/dataTables.dataTables.min.css">
 	</head>
 	<body>
 		<header>
@@ -31,45 +34,44 @@
                         <div class="div-card">Psychology</div>
 					</p>
 				</section>
-				<fieldset>
+				<fieldset id="contacts">
 					<legend>Contacts</legend>
-					<label for="chair-input">Chair: </label>
-					<input
-						type="text"
-						id="chair-input"
-						name="chair-input"
-						class="input-fields"
-                        value="Dr. Sarah Mitchell"
-					/>
-					<label for="dean-input">Dean: </label>
-					<input
-						type="text"
-						id="dean-input"
-						name="dean-input"
-						class="input-fields"
-                        value="Dr. Robert Chen"
-					/>
-					<label for="pen-input">PEN Contact: </label>
-					<input
-						type="text"
-						id="pen-input"
-						name="pen-input"
-						class="input-fields"
-                        value="Jennifer Rodriguez"
-					/>
-					<label for="loc-input">LOC Representative: </label>
-					<input
-						type="text"
-						id="loc-input"
-						name="loc-input"
-						class="input-fields"
-                        value="Michael Thompson"
-					/>
+					<table id="contacts-table" class="display">
+						<thead>
+							<tr>
+								<th>Role</th>
+								<th>Name</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Chair</td>
+								<td>Dr. Sarah Mitchell</td>
+								<td><button type="button">Edit</button></td>
+							</tr>
+							<tr>
+								<td>Dean</td>
+								<td>Dr. Robert Chen</td>
+								<td><button type="button">Edit</button></td>
+							</tr>
+							<tr>
+								<td>PEN Contact</td>
+								<td>Jennifer Rodriguez</td>
+								<td><button type="button">Edit</button></td>
+							</tr>
+							<tr>
+								<td>LOC Representative</td>
+								<td>Michael Thompson</td>
+								<td><button type="button">Edit</button></td>
+							</tr>
+						</tbody>
+					</table>
 				</fieldset>
 			</form>
-			<iframe
-				src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSqZrRLG3J2QtDEOqSopkjmPhjw40or4dWBA602wDfu1ZM_GfLvIXuLoiVjpA1sN9lE2OTGLT5k_dyv/pubhtml?gid=1432938532&amp;single=true&amp;widget=true&amp;headers=false"
-			></iframe>
 		</main>
 	</body>
+	<script>
+		let contactsTable = new DataTable("#contacts-table");
+	</script>
 </html>
