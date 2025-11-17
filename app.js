@@ -1,14 +1,17 @@
 import express from "express";
-import mysql from "mysql2/promise";
+import mysql2 from "mysql2";
 
 const app = express();
 
-const pool = mysql.createPool({
-	host: "localhost",
-	user: "root",
-	password: "",
-	database: "loc_project",
-});
+const pool = mysql2
+	.createPool({
+		host: process.env.DB_HOST,
+		user: process.env.DB_USER,
+		password: process.env.DB_PASSWORD,
+		database: process.env.DB_NAME,
+		port: process.env.DB_PORT,
+	})
+	.promise();
 
 const PORT = 3100;
 
